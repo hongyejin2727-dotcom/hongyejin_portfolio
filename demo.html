@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HONG YEJIN — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  :root {
+    --black: #111;
+    --white: #fff;
+    --gray-light: #d8d8d8;
+    --gray-text: #555;
+    --border: #ddd;
+  }
+ 
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+  }
+ 
+  /* ── 헤더 ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 52px;
+    border-bottom: 1px solid #ccc;
+  }
+ 
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    color: var(--black);
+    text-decoration: none;
+  }
+ 
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+ 
+  nav a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    text-decoration: none;
+    padding: 6px 16px;
+    transition: background 0.2s, color 0.2s;
+  }
+ 
+  nav a:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+ 
+  /* INFO는 기본이 검정 배경 */
+  nav a.active {
+    background: var(--black);
+    color: var(--white);
+  }
+ 
+  /* ── 메인 레이아웃 ── */
+  main {
+    max-width: 100%;
+    margin: 0;
+    padding: 100px 200px 80px;
+    display: grid;
+    /* 왼쪽: 사진 영역 / 오른쪽: 텍스트 영역 */
+    grid-template-columns: 1fr 250px;
+    gap: 0 150px;
+    align-items: start;
+  }
+ 
+  /* ── 왼쪽: 사진 목록 ── */
+  .photos {
+    display: flex;
+    flex-direction: column;
+
+  }
+ 
+  /* 회색 placeholder 박스 (사진 자리) */
+  .photo-item {
+    width: 1000px;
+    aspect-ratio: 100%;       /* 가로:세로 비율 — 원하면 바꾸세요 */
+    background: var(--gray-light);
+    overflow: hidden;
+    display: block;
+  }
+ 
+  /* 실제 사진을 넣으면 이렇게 보임 */
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+ 
+  .photo-item:hover img {
+    transform: scale(1.03);
+  }
+ 
+  /* ── 오른쪽: 텍스트 영역 ── */
+  .info {
+    position: sticky;     /* 스크롤해도 텍스트가 화면에 고정 */
+    top: 100px;
+    padding-top: 10px;
+  }
+ 
+  .work-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+ 
+  .work-desc {
+    font-size: 0.65rem;
+    line-height: 1.85;
+    color: var(--gray-text);
+    margin-bottom: 48px;
+    word-break: keep-all;
+  }
+ 
+  .work-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+ 
+  .meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+ 
+  .meta-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--black);
+  }
+ 
+  .meta-value {
+    font-size: 0.75rem;
+    color: var(--gray-text);
+  }
+ 
+  /* ── 반응형 ── */
+  @media (max-width: 900px) {
+    main {
+      grid-template-columns: 1fr;
+      padding: 32px 20px 60px;
+    }
+ 
+    /* 모바일에서는 텍스트가 위로 올라옴 */
+    .info {
+      position: static;
+      order: -1;
+      margin-bottom: 32px;
+    }
+ 
+    header {
+      padding: 0 20px;
+    }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ── 헤더 ── -->
+<header>
+  <a href="index.html" class="logo">HONG YEJIN</a>
+  <nav>
+    <a href="works.html">WORKS</a>
+    <a href="info.html" class="active">INFO</a>
+  </nav>
+</header>
+ 
+<!-- ── 메인 ── -->
+<main>
+ 
+  <!-- 왼쪽: 사진 3장 -->
+  <div class="photos">
+ 
+    <div class="photo-item">
+    <img src="mato/mato1.png" alt="작품 사진 1">
+    </div>
+ 
+    <div class="photo-item">
+    <img src="mato/mato2.png" alt="작품 사진 2">
+    </div>
+
+    <div class="photo-item">
+    <img src="mato/mato3.png" alt="작품 사진 3">
+    </div>
+    
+    <div class="photo-item">
+    <img src="mato/mato4.png" alt="작품 사진 4">
+    </div>
+ 
+    <div class="photo-item">
+    <img src="mato/mato5.png" alt="작품 사진 5">
+    </div>
+
+    <div class="photo-item">
+    <img src="mato/mato6.png" alt="작품 사진 6">
+    </div>
+
+    <div class="photo-item">
+    <img src="mato/mato7.png" alt="작품 사진 7">
+    </div>
+ 
+    <div class="photo-item">
+    <img src="mato/mato8.png" alt="작품 사진 8">
+    </div>
+
+    <div class="photo-item">
+    <img src="mato/mato9.png" alt="작품 사진 9">
+    </div>
+    
+    <div class="photo-item">
+    <img src="mato/mato10.png" alt="작품 사진 10">
+    </div>
+ 
+    <div class="photo-item">
+    <img src="mato/mato11.png" alt="작품 사진 11">
+    </div>
+
+    <div class="photo-item">
+    <img src="mato/mato12.png" alt="작품 사진 12">
+    </div>
+ 
+  </div>
+ 
+  <!-- 오른쪽: 텍스트 정보 -->
+  <div class="info">
+    <h1 class="work-title">Hotel assistant, MATO</h1>
+ 
+    <p class="work-desc">
+      Mato는 하우스키핑의 효율을 높이고 고객에게는 잊지 못할 경험을 선사하는 호텔 어시스턴트 입니다.
+      호텔은 수많은 객실 관리로 인해 하우스키퍼의 노동 집약도가 매우 높습니다.
+      따라서 스태프 전용 관리 대시보드로 복잡한 업무를 데이터화하며 하우스키퍼의 일을 보조합니다.
+      또한 통합적이고 개인화된 비대면 서비스를 원하는 현대 투숙객의 니즈를 반영하여,
+      고객에게는 로봇의 친절한 안내와 맞춤형 시설 정보를 제공함으로써 호텔 운영의 디지털 전환과 프리미엄 서비스 가치를 동시에 실현합니다. 
+    </p>
+ 
+    <div class="work-meta">
+      <div class="meta-row">
+        <span class="meta-label">제작형태</span>
+        <span class="meta-value">개인 작업</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">작업일자</span>
+        <span class="meta-value">2024. 03</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-value">Robotics / Service Design / UXUI</span>
+      </div>
+    </div>
+  </div>
+ 
+</main>
+ 
+</body>
+</html>
+ 
